@@ -1082,7 +1082,7 @@ state.Gen {
 	control.55 {
 		iface MIXER
 		name 'Mix A Input 05 Playback Volume'
-		value 160
+		value 140
 		comment {
 			access 'read write'
 			type INTEGER
@@ -1090,7 +1090,7 @@ state.Gen {
 			range '0 - 184 (step 1)'
 			dbmin -8000
 			dbmax 1200
-			dbvalue.0 0
+			dbvalue.0 -1000
 		}
 	}
 	control.56 {
@@ -1236,7 +1236,7 @@ state.Gen {
 	control.66 {
 		iface MIXER
 		name 'Mix B Input 06 Playback Volume'
-		value 160
+		value 140
 		comment {
 			access 'read write'
 			type INTEGER
@@ -1244,7 +1244,7 @@ state.Gen {
 			range '0 - 184 (step 1)'
 			dbmin -8000
 			dbmax 1200
-			dbvalue.0 0
+			dbvalue.0 -1000
 		}
 	}
 	control.67 {

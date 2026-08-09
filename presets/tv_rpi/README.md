@@ -25,11 +25,11 @@ RPi R → PCM Playback 2 ───┘
 ### Wejścia i Poziomy Głośności (Mixer Inputs & Volume)
 * **Mix A (Kanał Lewy):**
   * `Input 3 / Analogue 3` = **0 dB** (TV L)
-  * `Input 5 / PCM 1`      = **0 dB** (RPi L)
+  * `Input 5 / PCM 1`      = **-10 dB** (RPi/komputer L)
   * Pozostałe wejścia       = **-∞**
 * **Mix B (Kanał Prawy):**
   * `Input 4 / Analogue 4` = **0 dB** (TV R)
-  * `Input 6 / PCM 2`      = **0 dB** (RPi R)
+  * `Input 6 / PCM 2`      = **-10 dB** (RPi/komputer R)
   * Pozostałe wejścia       = **-∞**
 
 ### Głośność Główna
