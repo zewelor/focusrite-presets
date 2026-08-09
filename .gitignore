@@ -12,3 +12,6 @@ Thumbs.db
 *.bak
 *.swp
 *~
+
+# Locally built helper binary
+/scarlett-front-panel/scarlett-front-panel

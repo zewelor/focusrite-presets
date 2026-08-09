@@ -7,7 +7,7 @@ Kolekcja profilów i plików stanu dla interfejsów **Focusrite Scarlett** pod L
 Każdy preset znajduje się we własnym podkatalogu wewnątrz `presets/` i zawiera plik stanu (`.state`) oraz plik `README.md` z opisem połączeń.
 
 ```text
-focusrite-presets/
+focusrite/
 ├── presets/
 │   ├── tv_rpi/
 │   │   ├── tv_rpi.state      # Plik stanu ALSA mixer
@@ -29,6 +29,23 @@ focusrite-presets/
 
 2. **Wczytanie stanu:**
    Wczytaj plik `.state` z wybranego podkatalogu w aplikacji `alsa-scarlett-gui` / `scarlett2-gui` lub przy użyciu `alsactl restore -f <plik.state>`.
+
+## 🔧 Narzędzia sprzętowe
+
+W katalogu [`scarlett-front-panel/`](./scarlett-front-panel/) znajduje się jednorazowy helper USB dla **Scarlett 4i4 4th Gen z firmware 2417+**. Pozwala odczytać i ustawić:
+
+- jasność panelu: `high`, `medium`, `low`;
+- automatyczne wygaszanie po bezczynności: `0–86400` sekund (`0` oznacza brak wygaszania).
+
+Helper działa niskopoziomowo przez libusb, więc nie wymaga rekompilacji kernela. Przed uruchomieniem przeczytaj osobny [`README.md`](./scarlett-front-panel/README.md); wrapper `run-exclusive` zatrzymuje WirePlumbera i tymczasowo odłącza `snd_usb_audio`, aby uniknąć konfliktu z kernelem.
+
+Przykład konfiguracji najciemniejszego panelu i wygaszania po pięciu minutach:
+
+```sh
+cd scarlett-front-panel
+make
+./run-exclusive --brightness low --sleep 300
+```
 
 ---
 

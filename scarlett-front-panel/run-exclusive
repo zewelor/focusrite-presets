@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+module_removed=0
+
+restore() {
+    if ((module_removed)); then
+        sudo modprobe snd_usb_audio || true
+    fi
+    systemctl --user start wireplumber
+}
+trap restore EXIT
+
+sudo -v
+systemctl --user stop wireplumber
+sudo modprobe -r snd_usb_audio
+module_removed=1
+
+script_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
+sudo "$script_dir/scarlett-front-panel" "$@"
